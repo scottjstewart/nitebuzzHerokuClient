@@ -9,7 +9,6 @@ import { AdminComponent } from "./admin/admin.component";
 
 //module imports
 import { AdminRoutingModule } from "./admin-routing.module";
-import { AdminAccountComponent } from './admin-account/admin-account.component';
 
 @NgModule({
   imports: [
@@ -19,8 +18,7 @@ import { AdminAccountComponent } from './admin-account/admin-account.component';
   ],
   declarations: [
     DashboardComponent,
-    AdminComponent,
-    AdminAccountComponent
+    AdminComponent
   ]
 })
 export class AdminModule { }
