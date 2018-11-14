@@ -2,7 +2,7 @@ export const environment = {
   production: true
 };
 
-export let APIURL = '';
+export let APIURL;
 
 switch (window.location.hostname) {
   // this is the deployed angular application
