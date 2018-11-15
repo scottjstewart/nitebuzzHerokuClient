@@ -12,5 +12,5 @@ switch (window.location.hostname) {
     break;
   default:
     // this is the local host name of your API
-    APIURL = 'https://nitebuzz2018v1.herokuapp.com';
+    APIURL = 'http://localhost:5000';
 }

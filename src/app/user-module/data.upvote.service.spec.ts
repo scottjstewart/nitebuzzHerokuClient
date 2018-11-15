@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Data.UpvoteService } from './data.upvote.service';
+import { UpvoteService } from './data.upvote.service';
 
-describe('Data.UpvoteService', () => {
+describe('UpvoteService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: Data.UpvoteService = TestBed.get(Data.UpvoteService);
+    const service: UpvoteService = TestBed.get(UpvoteService);
     expect(service).toBeTruthy();
   });
 });

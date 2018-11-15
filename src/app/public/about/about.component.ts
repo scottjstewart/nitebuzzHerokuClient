@@ -44,11 +44,9 @@ export class AboutComponent implements OnInit {
     this.data.getBuzzes().subscribe(
       data => {
         this.buzzes$ = data
-        console.log(this.buzzes$)
       }
     )
     this.userId = this.auth.getId()
-    console.log(this.userId)
   }
 
   openDialog(title: string, original: string, id: string | number, index: number) {
@@ -66,7 +64,13 @@ export class AboutComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(data => {
       if (data) {
-        this.buzzes$[index].Comments.push(data)
+        this.comment
+          .addComment(data.comment, id)
+          .subscribe(
+            ret => {
+              this.buzzes$[index].Comments.push(ret)
+            }
+          );
       }
     });
   }
@@ -74,9 +78,7 @@ export class AboutComponent implements OnInit {
   plusOne(id: string, index) {
     this.upvote.plusOne(id).subscribe(
       res => {
-        console.log(res)
         if (res.status === 200) {
-          console.log(res)
           this.snackbar.open(res.message, "Ok", { duration: 3000 })
           this.buzzes$[index].upVote = res.votes
         } else if (res.status === 201) {
@@ -90,7 +92,6 @@ export class AboutComponent implements OnInit {
     if (window.confirm('Delete comment?')) {
       this.comment.deleteComment(id).subscribe(
         rep => {
-          console.log(rep)
           if (rep.status === 200) {
             this.buzzes$[index].Comments.splice(dex, 1)
           }
@@ -127,7 +128,12 @@ export class AboutComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       if (data) {
         console.log(data)
-        this.buzzes$[index].Comments[dex] = data
+        this.comment.updateComment(id, data.comment).subscribe(
+          ret => {
+            console.log(ret)
+            this.buzzes$[index].Comments[dex] = ret
+          }
+        )
       }
     });
   }
@@ -146,7 +152,6 @@ export class AboutComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(data => {
       if (data) {
-        console.log('data', data)
         this.buzzes$[index] = data
       }
     });

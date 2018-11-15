@@ -1,49 +1,32 @@
 <ul>
-  <li>
-    <a routerLink="">
-      Home
-    </a>
-  </li>
-  <li>
-    <a *ngIf="logStat===false" routerLink="/login">
-      Login
-    </a>
-    <a *ngIf="logStat===true" (click)="logout()">Logout</a>
-  </li>
-  <li *ngIf="logStat===false">
-    <a routerLink="/signup">
-      Signup
-    </a>
-  </li>
-  <li> <a routerLink="/about">
-      Buzzes!
-    </a>
-  </li>
-  <li *ngIf="logStat===true" (click)="openDialog()">
-    <a>Start a Buzz</a>
-  </li>
-  <li>
-    <a routerLink="/contact">
-      Contact
-    </a>
-  </li>
-  <li *ngIf="logStat===true && isAdmin === false">
-    <a [matMenuTriggerFor]="menu">
-      <span>
-        <sub>
-          <mat-icon>person</mat-icon>
-        </sub>
-      </span>
-      Account
-    </a>
-    <mat-menu #menu="matMenu">
-      <a mat-menu-item routerLink="/user/account">My Account</a>
-    </mat-menu>
-  </li>
-  <div class="logo">
-    <img src="">
-  </div>
-  <li *ngIf="isAdmin === true">
-    <a routerLink="/admin">Admin</a>
-  </li>
+  <a routerLink="">
+    Home
+  </a>
+  <a *ngIf="logStat===false" routerLink="/login">
+    Login
+  </a>
+  <a *ngIf="logStat===true" href="" (click)="logout()">
+    Logout
+  </a>
+  <a *ngIf="logStat===false" routerLink="/signup">
+    Signup
+  </a>
+  <a routerLink="/about">
+    Buzzes!
+  </a>
+  <a *ngIf="logStat===true" (click)="openDialog()">
+    Start a Buzz
+  </a>
+  <a routerLink="/contact">
+    Contact
+  </a>
+  <a *ngIf="logStat === true && isAdmin === false" routerLink="/user/account">
+    Account
+  </a>
+  <mat-menu #menu="matMenu">
+    <a mat-menu-item>My Account</a>
+  </mat-menu>
+  <a *ngIf="isAdmin === true" routerLink="/admin">
+    Admin
+  </a>
 </ul>

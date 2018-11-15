@@ -1,8 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { BuzzesService } from 'src/app/shared/services/data.buzzes.service';
-import { DataCommentService } from 'src/app/shared/services/data.comment.service';
 
 
 @Component({
@@ -21,8 +19,6 @@ export class CommentDialogComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private ref: MatDialogRef<CommentDialogComponent>,
-    private Buzz: BuzzesService,
-    private comment: DataCommentService,
     @Inject(MAT_DIALOG_DATA) data
   ) {
     this.id = data.id;
@@ -40,13 +36,7 @@ export class CommentDialogComponent implements OnInit {
   }
 
   submit() {
-    this.comment
-      .addComment(this.form.controls.comment.value, this.id)
-      .subscribe(
-        ret => {
-          return this.ref.close(ret)
-        }
-      );
+    return this.ref.close(this.form.value)
   }
 
   close() {
@@ -54,10 +44,6 @@ export class CommentDialogComponent implements OnInit {
   }
 
   updateComment() {
-    this.comment.updateComment(this.id, this.form.controls.comment.value).subscribe(
-      data => {
-        return this.ref.close(data)
-      }
-    )
+    return this.ref.close(this.form.value)
   }
 }

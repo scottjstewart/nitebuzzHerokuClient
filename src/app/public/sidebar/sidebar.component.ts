@@ -4,8 +4,6 @@ import { Router, NavigationEnd, Event } from '@angular/router';
 import { LocationService } from '../../shared/services/data.location.service';
 import { MatDialogConfig, MatDialog } from '@angular/material';
 import { MakebuzzComponent } from '../../user-module/makebuzz/makebuzz.component';
-import { AdminAuthService } from 'src/app/admin-module/services/admin-auth.service';
-import { AdminService } from 'src/app/admin-module/services/data.admin.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -34,7 +32,6 @@ export class SidebarComponent implements OnInit {
     this.logStat = this.auth.loggedIn()
     this.isAdmin = this.auth.isAdmin()
     this.loc = this.geo.getLocation()
-    console.log(this.isAdmin)
   }
 
   logout() {

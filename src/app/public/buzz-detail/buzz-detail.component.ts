@@ -32,7 +32,6 @@ export class BuzzDetailComponent implements OnInit {
     this.buzzSvc.getBuzzById(id).subscribe(
       res => {
         this.buzz = res
-        console.log(this.buzz)
       }
     )
     this.userId = this.auth.getId()
@@ -52,8 +51,11 @@ export class BuzzDetailComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(data => {
       if (data) {
-        console.log(data)
-        this.buzz.Comments.push(data)
+        this.comment.addComment(data.comment, this.buzz.id).subscribe(
+          ret => {
+            this.buzz.Comments.push(ret)
+          }
+        )
       }
     });
   }
@@ -75,8 +77,11 @@ export class BuzzDetailComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(data => {
       if (data) {
-        console.log(data)
-        this.buzz.Comments[dex] = data
+        this.comment.updateComment(id, data.comment).subscribe(
+          ret => {
+            this.buzz.Comments[dex] = ret
+          }
+        )
       }
     });
   }
@@ -85,7 +90,6 @@ export class BuzzDetailComponent implements OnInit {
     if (window.confirm('Delete comment?')) {
       this.comment.deleteComment(id).subscribe(
         rep => {
-          console.log(rep)
           if (rep.status === 200) {
             this.buzz.Comments.splice(dex, 1)
           }

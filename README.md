@@ -2,13 +2,10 @@
 
 This project was created starting our 9nth week of class. NiteBuzz allows you to see what other people in the area are doing and having a great time!
 
-## Why NiteBuzz
-
-We wanted to build an easy efficient way of checking out what's going on in the area. NiteBuzz does just that.
 
 ## Features
 
-NiteBuzz was created to make it easy to see whats going on in the area and choose what you want to do. 
+NiteBuzz was created to make it easy to see whats going on in the area and choose what you want to do.
 
 # Built with
 
@@ -38,15 +35,25 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-# How to use? 
+# cloning
+
+## Backend
+
+https://github.com/scottjstewart/NiteBuzzHerokuBackend
+
+## Frontend
+
+https://github.com/scottjstewart/nitebuzzHerokuClient
+
+# How to use?
 
 ## user?
 
-Simply visit the page to have access to all the buzzes in the area. By logging in you have access to comment on buzzes or create your own buzz if your out having a great time. 
+Simply visit the page to have access to all the buzzes in the area. By logging in you have access to comment on buzzes or create your own buzz if your out having a great time.
 
 ## Client
 
-As a client, you would have the ability to create your own event for the night, post your deals you might be having in order to have a bigger turnout. 
+As a client, you would have the ability to create your own event for the night, post your deals you might be having in order to have a bigger turnout.
 
 # Credits
 

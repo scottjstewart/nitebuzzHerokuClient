@@ -88,7 +88,6 @@ export class DashboardComponent implements OnInit {
   }
 
   deleteBuzz(id) {
-    console.log('buzz delete init')
     this.admin.adminDeleteBuzz(id).subscribe(
       res => {
         if (res.success === true) {

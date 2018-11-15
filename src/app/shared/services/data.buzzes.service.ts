@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import { Observable, of, ReplaySubject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { catchError, tap } from "rxjs/operators";
-import { AuthUserService } from "./data.auth-user.service";
 import { Buzz } from "../models/buzz.model";
 
 @Injectable({
@@ -16,12 +15,10 @@ export class BuzzesService {
 
   constructor(
     private http: HttpClient,
-    private auth: AuthUserService
   ) { }
 
   getBuzzes(): Observable<any> {
     return this.http.get<any>("/buzz/get").pipe(
-      tap(res => console.log(res)),
       catchError(this.handleError("getBuzzes", []))
     );
   }
@@ -48,7 +45,6 @@ export class BuzzesService {
   }
 
   updateBuzz(buzz: Buzz): Observable<any> {
-    console.log('updateBuzz init', buzz)
     return this.http
       .put(`/buzz/update/${buzz.id}`, buzz)
       .pipe(catchError(this.handleError("updateBuzz", [])));

@@ -69,7 +69,6 @@ export class AccountComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(data => {
       this.auth.updateUser(data).subscribe(
-        res => console.log(res)
       )
     });
   }
