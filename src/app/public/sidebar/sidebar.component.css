@@ -6,19 +6,21 @@ ul {
   background-color: #3700b3;
 }
 
-li {
-  float: left;
-}
-
-li a {
+a  {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 10px 14px 14px;
   text-decoration: none;
+  float: left;
 }
 
 /* Change the link color to #111 (black) on hover */
-li a:hover {
+a:hover {
   background-color: #111;
+}
+
+icon{
+  padding: 0;
+  margin: 0
 }

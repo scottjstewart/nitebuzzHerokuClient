@@ -22,10 +22,8 @@ export class AuthUserService {
     };
   }
   getUser(): Observable<User> {
-    console.log("get user start");
     return this.http
       .get<User>("/user/get")
-      .pipe(tap(auth => console.log(auth)));
   }
 
   updateUser(user: User): Observable<any> {

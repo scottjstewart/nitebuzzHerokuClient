@@ -91,9 +91,6 @@ export class MakebuzzComponent implements OnInit {
       longitude: null,
       latitude: null
     }
-
-    console.log(buzz)
-    console.log(buzz2)
     this.Buzz.updateBuzz(buzz2).subscribe(
       res => {
         return this.ref.close(res)

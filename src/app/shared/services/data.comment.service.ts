@@ -16,11 +16,10 @@ export class DataCommentService {
   addComment(comment: string, id: string | number): Observable<any> {
     return this.http
       .post(`/comment/add/${id}`, { text: comment })
-      .pipe(tap(ret => console.log(ret)));
   }
 
   getComments() {
-    return this.http.get("/comment/get").pipe(tap(data => console.log(data)));
+    return this.http.get("/comment/get")
   }
 
   getOwnComment(commentId) {
@@ -28,7 +27,6 @@ export class DataCommentService {
   }
 
   updateComment(commentId, newComment): Observable<any> {
-    console.log('update comment init: newComment=', newComment)
     return this.http.put(`/comment/update/${commentId}`, { text: newComment });
   }
 
